@@ -20,7 +20,7 @@ class Strings
     public function kebabCase() :string
     {
         if(empty($this->string)){
-            throw new \DomainException('Enter string is empty.');
+            throw new \DomainException('Provided string is empty.');
         }
         return strtolower(preg_replace('%([a-z])([A-Z])%', '\1-\2', $this->string));
     }
@@ -35,7 +35,7 @@ class Strings
     public function countCharOccurrence(string $char) : int
     {
         if (empty(trim($char))) {
-            throw new \InvalidArgumentException('Enter string is empty.');
+            throw new \InvalidArgumentException('Provided string is empty.');
         }
         return substr_count($this->string, $char);
     }
@@ -50,7 +50,7 @@ class Strings
     public function mostFrequentChars(string $char): string
     {
         if (empty(trim($char))) {
-            throw new \InvalidArgumentException('Enter string is empty.');
+            throw new \InvalidArgumentException('Provided string is empty.');
         }
         $searchResult = count_chars($char,1);
         $charCode = array_keys($searchResult,max($searchResult))[0];

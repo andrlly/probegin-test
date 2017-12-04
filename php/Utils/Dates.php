@@ -15,7 +15,7 @@ class Dates
     public static function getDaysInQuarter(int $year, int $quarter) :int
     {
         if(!is_numeric($year) && !is_numeric($quarter)){
-                throw new \DomainException("Enter value isn't number.");
+                throw new \DomainException("Type isn't number.");
         }
         if ( ($quarter != 1) && ($quarter != 2) && ($quarter != 3) && ($quarter != 4) ) return false;
         $quarter_arr = [];

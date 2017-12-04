@@ -21,7 +21,7 @@ class Arrays
     public function findPair(int $sum) :array
     {
         if(!is_numeric($sum)){
-            throw new \DomainException("Enter value isn't number.");
+            throw new \DomainException("Type isn't number.");
         }
         $arr = $this->array;
         $results = [];
