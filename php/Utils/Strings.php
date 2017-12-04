@@ -2,14 +2,12 @@
 
 namespace Utils;
 
-//use InvalidArgumentException;
-
 class Strings
 {
     /**
      * @var string $string
      */
-    protected $string;
+    protected $string = 'ProbeginTestAssignments';
 
     /**
      * Change case of a given string to kebeb
@@ -21,7 +19,7 @@ class Strings
      */
     public function kebabCase() :string
     {
-        if(!is_callable($this->string)){
+        if(empty($this->string)){
             throw new \DomainException('Enter string is empty.');
         }
         return strtolower(preg_replace('%([a-z])([A-Z])%', '\1-\2', $this->string));
@@ -68,9 +66,10 @@ class Strings
      */
     public function firstUniqueChar() :string
     {
-        $chars = preg_split('//', $this->string, -1, PREG_SPLIT_NO_EMPTY);
+        $string = strtolower($this->string);
+        $chars = preg_split('//', $string, -1, PREG_SPLIT_NO_EMPTY);
         foreach ($chars as $char) {
-            if (substr_count($this->string, $char) == 1) {
+            if (substr_count($string, $char) == 1) {
                 return $char;
             }
         }
@@ -91,7 +90,7 @@ class Strings
     public function asciiCompression() :string
     {
         $output = '';
-        $pieces = str_split( str_replace(" ","", $this->string) );
+        $pieces = str_split( str_replace(" ","", strtolower($this->string)) );
 
         foreach($pieces as $val)
             $pos[$val] = substr_count($this->string, $val);

@@ -6,6 +6,8 @@ class Caesar implements Cipher
 {
 
     /**
+     * @param  string $string Input
+     * @return string Encoded string
      * Returns an encrypted & utf8-encoded
      */
     public static function encode(string $string): string
@@ -21,6 +23,8 @@ class Caesar implements Cipher
     }
 
     /**
+     * @param  string $string Encoded value
+     * @return string Decoded strin
      * Returns decrypted original string
      */
     public static function decode(string $string): string

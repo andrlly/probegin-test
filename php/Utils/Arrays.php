@@ -7,7 +7,7 @@ class Arrays
     /**
      * @var array $array
      */
-    protected $array;
+    protected $array = [2,45,7,3,5,1,8,9,10,10];
 
     /**
      * Given an array of integers and a desired sum,
@@ -21,7 +21,7 @@ class Arrays
     public function findPair(int $sum) :array
     {
         if(!is_numeric($sum)){
-            throw new \DomainException('Enter value is not number.');
+            throw new \DomainException("Enter value isn't number.");
         }
         $arr = $this->array;
         $results = [];
@@ -43,7 +43,7 @@ class Arrays
                 $map[$w]++;
                 continue;
             }
-            $results[] = [$n,$w];
+            $results = [$n,$w];
         }
         return $results;
     }
@@ -92,13 +92,10 @@ class Arrays
      * @param array
      * @return array Sorted array
      */
-    public function sortByKeyLength() :array
+    public function sortByKeyLength(array $array) :array
     {
-        $array = $this->array;
-        ksort($array);
-        foreach ($array as $key => $val) {
-            $array[$key] = $val;
-        }
+        $keys = array_map('strlen', array_keys($array));
+        array_multisort($keys, SORT_DESC, $array);
         return $array;
     }
 

@@ -17,9 +17,9 @@ class Converter
     public static function convertWattsToBTUPerHour(int $watts) :int
     {
         if (!is_numeric($watts)) {
-            throw new \InvalidArgumentException('Enter type not is number.');
+            throw new \InvalidArgumentException("Enter type isn't number.");
         }
-        return round(self::BTUPerHour * $watts, 2);
+        return self::BTUPerHour * $watts;
     }
 
     /**
@@ -32,9 +32,9 @@ class Converter
     public static function convertKilowattsToHorsepower(int $kW) :int
     {
         if (!is_numeric($kW)) {
-            throw new \InvalidArgumentException('Enter type not is number.');
+            throw new \InvalidArgumentException("Enter type isn't number.");
         }
-        return round($kW / self::Horsepower, 2);
+        return $kW / self::Horsepower;
     }
 
 }
