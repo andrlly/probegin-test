@@ -27,7 +27,6 @@ class Dates
         $quarter1 = cal_days_in_month(CAL_GREGORIAN, $quarter_arr[0], $year);
         $quarter2 = cal_days_in_month(CAL_GREGORIAN, $quarter_arr[1], $year);
         $quarter3 = cal_days_in_month(CAL_GREGORIAN, $quarter_arr[2], $year);
-
         return $quarter1 + $quarter2 + $quarter3;
     }
 }
